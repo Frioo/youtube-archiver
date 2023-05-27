@@ -8,8 +8,8 @@
 </script>
 
 <div class="playlist">
-	<div class="card px-4 py-4 flex flex-col">
-    <div class="thumbnail !w-full mb-3" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
+	<div class="card variant-soft px-4 py-4 flex flex-col">
+    <div class="thumbnail w-80 mb-3" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
     </div>
 		<h2 class="h2 mb-3 text-xl font-bold opacity-90">{json.title}</h2>
     <p>Playlist by <a href={json.uploader_url}>{json.uploader}</a></p>
@@ -23,7 +23,7 @@
 	<div class="entries">
 		{#each json.entries as { title, channel, thumbnails }}
 			<div class="entry">
-				<div class="thumbnail" style="background-image: url('{defaultThumbnail(thumbnails)}')" />
+				<div class="thumbnail w-24" style="background-image: url('{defaultThumbnail(thumbnails)}')" />
 				<div class="flex flex-col justify-center ml-4">
 					<div class="">{title}</div>
 					<div class="text-gray-800">{channel || ''}</div>
@@ -47,6 +47,6 @@
 	}
 
 	.thumbnail {
-		@apply w-24 aspect-video bg-center bg-cover rounded-md;
+		@apply aspect-video bg-center bg-cover rounded-md;
 	}
 </style>
