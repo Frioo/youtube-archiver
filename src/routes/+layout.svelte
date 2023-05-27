@@ -17,7 +17,11 @@
 
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar>YouTube Archiver</AppBar>
+		<AppBar>
+			<h1 class="font-black opacity-90 text-xl">
+				YouTube Archiver
+			</h1>
+		</AppBar>
 	</svelte:fragment>
 	<slot />
 </AppShell>
