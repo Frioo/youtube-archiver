@@ -1,2 +1,54 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Playlist from "$lib/Playlist.svelte";
+  import { toastStore } from "@skeletonlabs/skeleton";
+
+  let playlists: string[] = [];
+  let url: string = "";
+  let json: any = undefined;
+  let error: any = undefined;
+
+  async function handleAdd() {
+    const pa = new URLSearchParams()
+    const resp = await fetch(`/api/playlist?url=${encodeURIComponent(url)}`);
+    const respJson = await resp.json();
+
+    if (resp.status !== 200) {
+      error = respJson;
+      toastStore.trigger({ 
+        message: error.message,
+        background: 'variant-filled-warning',
+      });
+    } else {
+      json = respJson;
+      playlists = [...playlists, url]
+      url = "";
+    }
+  }
+
+  function handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Enter') {
+      handleAdd();
+    }
+  }
+</script>
+
+<div class="card p-4 flex gap-2">
+  <input
+    bind:value={url}
+    on:keydown={handleKeyDown}
+    class="input"
+    type="text"
+    name="url"
+    placeholder="Playlist URL">
+  <button
+    class="btn variant-filled"
+    type="button"
+    on:click={handleAdd}>
+    Add
+  </button>
+</div>
+<div class="p-4">
+  {#if json}
+    <Playlist {json} />
+  {/if}
+</div>
