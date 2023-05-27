@@ -32,14 +32,14 @@
   }
 </script>
 
-<div class="card p-4 flex gap-2">
+<div class="p-4 flex gap-2">
   <div class="input-group input-group-divider grid-cols-[1fr_auto]">
     <!-- <div class="input-group-shim">(segment)</div> -->
     <input
       bind:value={url}
       on:keydown={handleKeyDown}
       class="input"
-      type="text"
+      type="url"
       name="url"
       placeholder="Playlist URL">
     <button class="variant-filled-secondary" on:click={handleAdd}>
