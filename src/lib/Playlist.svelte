@@ -8,17 +8,19 @@
 </script>
 
 <div class="playlist">
-	<div class="card variant-soft px-4 py-4 flex flex-col">
-    <div class="thumbnail w-80 mb-3" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
+	<div class="playlist-head">
+    <div class="thumbnail w-full max-w-sm" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
     </div>
-		<h2 class="h2 mb-3 text-xl font-bold">{json.title}</h2>
-    <a class="chip variant-filled w-min" href={json.uploader_url}>{json.uploader}</a>
-		<p>
-      {json.playlist_count} videos
-      &bull;
-      {Intl.NumberFormat().format(json.view_count)} views
-    </p>
-		<p>{json.description || ''}</p>
+    <div class="flex flex-col gap-3">
+      <h2 class="h2 text-xl font-bold">{json.title}</h2>
+      <a class="chip variant-filled w-min" href={json.uploader_url}>{json.uploader}</a>
+      <p>
+        {json.playlist_count} videos
+        &bull;
+        {Intl.NumberFormat().format(json.view_count)} views
+      </p>
+      <p>{json.description || ''}</p>
+    </div>
 	</div>
 	<div class="entries">
 		{#each json.entries as { title, channel, thumbnails }}
@@ -36,6 +38,10 @@
 <style lang="postcss">
   .playlist {
     @apply grid gap-6 grid-cols-1 lg:grid-cols-[auto_1fr];
+  }
+
+  .playlist-head {
+    @apply card variant-soft p-4 flex gap-3 flex-col sm:flex-row lg:flex-col;
   }
 
 	.entries {
