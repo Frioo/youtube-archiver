@@ -10,7 +10,18 @@
 	import '../app.postcss';
 
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+						
+	import { AppShell, AppBar, Toast } from '@skeletonlabs/skeleton';
 </script>
+
+
+<AppShell>
+	<svelte:fragment slot="header">
+		<AppBar>YouTube Archiver</AppBar>
+	</svelte:fragment>
+	<slot />
+</AppShell>
+<Toast />
 
 <style>
 
