@@ -23,10 +23,10 @@
 	<div class="entries">
 		{#each json.entries as { title, channel, thumbnails }}
 			<div class="entry">
-				<div class="thumbnail w-24" style="background-image: url('{defaultThumbnail(thumbnails)}')" />
+				<div class="thumbnail h-16" style="background-image: url('{defaultThumbnail(thumbnails)}')" />
 				<div class="flex flex-col justify-center ml-4">
-					<div class="">{title}</div>
-					<div class="text-gray-800">{channel || ''}</div>
+					<div class="font-medium opacity-90">{title}</div>
+					<div class="text-gray-800 text-base">{channel || ''}</div>
 				</div>
 			</div>
 		{/each}

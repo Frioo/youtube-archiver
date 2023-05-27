@@ -42,7 +42,7 @@
       type="url"
       name="url"
       placeholder="Playlist URL">
-    <button class="variant-filled-secondary" on:click={handleAdd}>
+    <button class="variant-filled" on:click={handleAdd}>
       Fetch
     </button>
   </div>
