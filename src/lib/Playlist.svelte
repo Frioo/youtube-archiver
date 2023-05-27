@@ -11,8 +11,8 @@
 	<div class="card variant-soft px-4 py-4 flex flex-col">
     <div class="thumbnail w-80 mb-3" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
     </div>
-		<h2 class="h2 mb-3 text-xl font-bold opacity-90">{json.title}</h2>
-    <p>Playlist by <a href={json.uploader_url}>{json.uploader}</a></p>
+		<h2 class="h2 mb-3 text-xl font-bold">{json.title}</h2>
+    <a class="chip variant-filled w-min" href={json.uploader_url}>{json.uploader}</a>
 		<p>
       {json.playlist_count} videos
       &bull;
