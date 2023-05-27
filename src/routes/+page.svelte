@@ -33,19 +33,19 @@
 </script>
 
 <div class="card p-4 flex gap-2">
-  <input
-    bind:value={url}
-    on:keydown={handleKeyDown}
-    class="input"
-    type="text"
-    name="url"
-    placeholder="Playlist URL">
-  <button
-    class="btn variant-filled"
-    type="button"
-    on:click={handleAdd}>
-    Add
-  </button>
+  <div class="input-group input-group-divider grid-cols-[1fr_auto]">
+    <!-- <div class="input-group-shim">(segment)</div> -->
+    <input
+      bind:value={url}
+      on:keydown={handleKeyDown}
+      class="input"
+      type="text"
+      name="url"
+      placeholder="Playlist URL">
+    <button class="variant-filled-secondary" on:click={handleAdd}>
+      Fetch
+    </button>
+  </div>
 </div>
 <div class="p-4">
   {#if json}
