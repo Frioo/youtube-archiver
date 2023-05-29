@@ -1,13 +1,15 @@
 <script lang="ts">
 	import Playlist from "$lib/Playlist.svelte";
-  import { toastStore } from "@skeletonlabs/skeleton";
+  import { toastStore, ProgressBar } from "@skeletonlabs/skeleton";
 
   let playlists: string[] = [];
   let url: string = "";
+  let loading = false;
   let json: any = undefined;
   let error: any = undefined;
 
   async function handleAdd() {
+    loading = true;
     const pa = new URLSearchParams()
     const resp = await fetch(`/api/playlist?url=${encodeURIComponent(url)}`);
     const respJson = await resp.json();
@@ -23,11 +25,12 @@
       playlists = [...playlists, url]
       url = "";
     }
+    loading = false;
   }
 
-  function handleKeyDown(e: KeyboardEvent) {
+  async function handleKeyDown(e: KeyboardEvent) {
     if (e.key === 'Enter') {
-      handleAdd();
+      await handleAdd();
     }
   }
 </script>
@@ -48,6 +51,13 @@
   </div>
 </div>
 <div class="p-4">
+  {#if loading}
+    <div
+      class="flex flex-col w-48 mx-auto my-6 gap-4 items-center">
+      Loading playlist
+      <ProgressBar />
+    </div>
+  {/if}
   {#if json}
     <Playlist {json} />
   {/if}
