@@ -9,7 +9,7 @@
 
 <div class="playlist">
 	<div class="card playlist-head">
-    <div class="thumbnail w-full max-w-sm" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
+    <div class="thumbnail h-64 md:h-48 lg:h-36" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
     </div>
     <div class="flex flex-col gap-3">
       <h2 class="h2 text-xl font-bold">{json.title}</h2>
@@ -26,7 +26,7 @@
 		{#each json.entries as { title, channel, thumbnails }}
 			<div class="entry">
 				<div class="thumbnail h-16" style="background-image: url('{defaultThumbnail(thumbnails)}')" />
-				<div class="flex flex-col justify-center ml-4">
+				<div class="flex flex-col justify-start ml-2">
 					<div class="font-medium opacity-90">{title}</div>
 					<div class="text-gray-800 text-base">{channel || ''}</div>
 				</div>
@@ -45,11 +45,12 @@
   }
 
 	.entries {
-		@apply flex flex-col gap-2;
+		@apply flex flex-col;
 	}
 
 	.entry {
-		@apply flex;
+		@apply 
+			flex py-1;
 	}
 
 	.thumbnail {
