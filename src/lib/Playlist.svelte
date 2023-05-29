@@ -8,7 +8,7 @@
 </script>
 
 <div class="playlist">
-	<div class="playlist-head">
+	<div class="card playlist-head">
     <div class="thumbnail w-full max-w-sm" style="background-image: url('{defaultThumbnail(json.thumbnails)}')">
     </div>
     <div class="flex flex-col gap-3">
@@ -41,7 +41,7 @@
   }
 
   .playlist-head {
-    @apply card variant-soft p-4 flex gap-3 flex-col sm:flex-row lg:flex-col;
+    @apply variant-soft p-4 flex gap-3 flex-col sm:flex-row lg:flex-col;
   }
 
 	.entries {
