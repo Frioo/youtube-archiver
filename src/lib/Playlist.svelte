@@ -1,10 +1,9 @@
 <script lang="ts">
+	import Video from "$lib/Video.svelte";
+	import { defaultThumbnail } from "$lib/utils";
+
 	export let json: any;
 	let thumbnail = json?.thumbnails?.[json?.thumbnails.length - 1 || 0];
-
-	function defaultThumbnail(thumbnails: any) {
-		return thumbnails[thumbnails.length - 1 || 0].url;
-	}
 </script>
 
 <div class="playlist">
@@ -23,14 +22,8 @@
     </div>
 	</div>
 	<div class="entries">
-		{#each json.entries as { title, channel, thumbnails }}
-			<div class="entry">
-				<div class="thumbnail h-16" style="background-image: url('{defaultThumbnail(thumbnails)}')" />
-				<div class="flex flex-col justify-start ml-2">
-					<div class="font-medium opacity-90">{title}</div>
-					<div class="text-gray-800 text-base">{channel || ''}</div>
-				</div>
-			</div>
+		{#each json.entries as entry}
+			<Video video={entry} />
 		{/each}
 	</div>
 </div>
@@ -48,12 +41,7 @@
 		@apply flex flex-col;
 	}
 
-	.entry {
-		@apply 
-			flex py-1;
-	}
-
-	.thumbnail {
+	:global(.thumbnail) {
 		@apply aspect-video bg-center bg-cover rounded-md;
 	}
 </style>
