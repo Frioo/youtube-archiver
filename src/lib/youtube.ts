@@ -1,6 +1,18 @@
 import { exec, spawn } from 'node:child_process';
+import YTDLP from 'yt-dlp-wrap';
 
-export function loadPlaylist(url: string): Promise<string> {
+const ytdlp = new YTDLP();
+
+export async function loadPlaylist(url: string) {
+	try {
+		const output = await ytdlp.execPromise(['--flat-playlist', '-J', url]);
+		return output;
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+/* export function loadPlaylist(url: string): Promise<string> {
 	return new Promise((resolve, reject) => {
 		let text = '';
 		let err = '';
@@ -24,4 +36,4 @@ export function loadPlaylist(url: string): Promise<string> {
 			}
 		});
 	});
-}
+} */
