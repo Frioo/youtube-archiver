@@ -12,6 +12,16 @@ export async function loadPlaylist(url: string) {
 	}
 }
 
+export async function loadURL(url: string) {
+	console.log(`[server] loading url: ${url}`);
+	try {
+		const output = await ytdlp.execPromise(['--flat-playlist', '-J', url]);
+		return JSON.parse(output);
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 /* export function loadPlaylist(url: string): Promise<string> {
 	return new Promise((resolve, reject) => {
 		let text = '';
