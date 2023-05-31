@@ -4,6 +4,8 @@
 	import dayjsDuration from 'dayjs/plugin/duration';
 	import dayjsRelativeTime from 'dayjs/plugin/relativeTime';
 	import {
+	BarChart2Icon,
+	BarChartIcon,
 		DownloadIcon,
 		ExternalLinkIcon,
 		EyeIcon,
@@ -93,36 +95,50 @@
 	</div>
 </div>
 
-<!-- Video only -->
 <div class="grid grid-cols-2 gap-8">
-	<div class="m-4 flex flex-col gap-2 w-full">
-		<h2 class="h2 text-xl font-medium my-2">Video Only</h2>
-		{#each videoFormats as f}
-			<div class="card px-4 py-2.5 flex gap-2 items-center">
-				{f.format_note}{f.fps}
-				<span class="badge variant-soft">
-					{f.ext}
-				</span>
-				<span class="badge variant-soft">
-					<HeadphonesIcon size="1.25x" class="mr-2" />
-					{f.acodec}
-				</span>
-				<!-- <span class="badge variant-soft">
-        </span> -->
-				<div class="badge variant-soft">
-					<VideoIcon size="1x" class="mr-2" />
-					{f.vcodec}
-				</div>
-
-				<div class="grow w-8" />
-
-				<a href={f.url} target="_blank" class="btn btn-sm variant-filled-primary">
-					<DownloadIcon size="1.25x" class="mr-2" />
-					Download
-				</a>
-			</div>
-		{/each}
-	</div>
+  <!-- Video only -->
+	<div class="m-4 flex flex-col gap-2">
+    <h2 class="h2 text-xl font-medium my-2">Video Only</h2>
+    <div class="table-container card">
+      <table class="table table-compact !bg-transparent table-interactive">
+        <tbody>
+          {#each videoFormats as f}
+            <tr class="row">
+              <td class="w-full">
+                <span class="text-base">{f.format_note}{f.fps}</span>
+              </td>
+              <td>
+                <span class="badge variant-soft">
+                  {f.ext}
+                </span>
+              </td>
+              <!-- Audio codec -->
+              <!-- <td>
+                <span class="badge variant-soft">
+                  <HeadphonesIcon size="1.25x" class="mr-2" />
+                  {f.acodec}
+                </span>
+              </td> -->
+              <!-- Video codec -->
+              <td>
+                <div class="badge variant-soft">
+                  <VideoIcon size="1x" class="mr-2" />
+                  {f.vcodec}
+                </div>
+              </td>
+              <!-- Video bitrate -->
+              <td>
+                <div class="badge variant-soft">
+                  <BarChart2Icon size="1x" class="mr-2" />
+                  {f.vbr} Kbps
+                </div>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 	<!-- Quick download -->
 	<div class="m-4 flex flex-col gap-2">
@@ -157,3 +173,9 @@
 		{/each}
 	</div>
 </div>
+
+<style lang="postcss">
+  tr.row:nth-child(even) {
+    @apply bg-transparent;
+  }
+</style>
