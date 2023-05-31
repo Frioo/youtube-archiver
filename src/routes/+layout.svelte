@@ -11,7 +11,7 @@
 
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 						
-	import { AppShell, AppBar, Toast } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Toast, Modal } from '@skeletonlabs/skeleton';
 </script>
 
 
@@ -26,6 +26,7 @@
 	<slot />
 </AppShell>
 <Toast />
+<Modal />
 
 <style>
 
