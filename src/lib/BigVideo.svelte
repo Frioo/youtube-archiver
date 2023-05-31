@@ -123,7 +123,7 @@
 
         <div class="grow-[2]"></div>
 
-        <a href={f.url} target="_blank" class="btn btn-sm variant-filled-primary grow">
+        <a href="/api/download?url={encodeURIComponent(f.url)}" target="_blank" download={title} class="btn btn-sm variant-filled-primary grow">
           <DownloadIcon size="1.25x" class="mr-2" />
           {filesizeText(f.filesize || f.filesize_approx)}
         </a>
