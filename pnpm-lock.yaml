@@ -28,6 +28,9 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.23)
+  dayjs:
+    specifier: ^1.11.7
+    version: 1.11.7
   eslint:
     specifier: ^8.28.0
     version: 8.41.0
@@ -55,6 +58,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.0.1
     version: 3.3.2(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.59.1)
+  svelte-feather-icons:
+    specifier: ^4.0.1
+    version: 4.0.1
   svelte-preprocess:
     specifier: ^5.0.3
     version: 5.0.3(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.59.1)(typescript@5.0.4)
@@ -937,6 +943,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    dev: true
+
+  /dayjs@1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: true
 
   /debug@4.3.4:
@@ -2092,6 +2102,12 @@ packages:
       eslint-scope: 7.2.0
       eslint-visitor-keys: 3.4.1
       espree: 9.5.2
+      svelte: 3.59.1
+    dev: true
+
+  /svelte-feather-icons@4.0.1:
+    resolution: {integrity: sha512-DMDrlbblaRUHLcTFtKHE4GWQ/Fk/kneGIZrrI75EmTxCu1hgHe8uq8e80ONrmdjL/i3f1d8fkcx73SWng2X6Gg==}
+    dependencies:
       svelte: 3.59.1
     dev: true
 
