@@ -37,7 +37,6 @@
 
 <div class="p-4 flex gap-2">
   <div class="input-group input-group-divider grid-cols-[1fr_auto]">
-    <!-- <div class="input-group-shim">(segment)</div> -->
     <input
       bind:value={url}
       on:keydown={handleKeyDown}
