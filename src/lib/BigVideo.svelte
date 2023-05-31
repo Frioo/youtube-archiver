@@ -29,6 +29,19 @@
       return dur.format('HH:mm:ss');
     }
   }
+
+  function filesizeText(bytes: number) {
+    const sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB'];
+    let i = 0;
+    while (bytes > 1024) {
+      bytes = bytes / 1024;
+      i += 1;
+    }
+
+    bytes = Math.round(bytes);
+
+    return `${bytes}${sizes[i]}`;
+  }
 </script>
 
 <div class="card m-4 overflow-hidden">
@@ -90,7 +103,8 @@
     {/each}
   </div>
 
-  <div class="m-4 flex flex-col gap-2 w-fit">
+  <!-- Quick download -->
+  <div class="m-4 flex flex-col gap-2">
     <h2 class="h2 text-xl font-medium my-2">Quick Download</h2>
     {#each formats.filter((f) => f.acodec !== 'none' && f.vcodec !== "none") as f}
       <div class="card px-4 py-2.5 flex gap-2 items-center">
@@ -102,18 +116,16 @@
           <HeadphonesIcon size="1.25x" class="mr-2" />
           {f.acodec}
         </span>
-        <!-- <span class="badge variant-soft">
-        </span> -->
         <div class="badge variant-soft">
           <VideoIcon size="1x" class="mr-2" />
           {f.vcodec}
         </div>
 
-        <div class="grow w-8"></div>
+        <div class="grow-[2]"></div>
 
-        <a href={f.url} target="_blank" class="btn btn-sm variant-filled-primary">
+        <a href={f.url} target="_blank" class="btn btn-sm variant-filled-primary grow">
           <DownloadIcon size="1.25x" class="mr-2" />
-          Download
+          {filesizeText(f.filesize || f.filesize_approx)}
         </a>
       </div>
     {/each}
