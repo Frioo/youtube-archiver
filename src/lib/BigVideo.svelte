@@ -95,7 +95,40 @@
 	</div>
 </div>
 
-<div class="grid grid-cols-2 gap-8">
+<!-- Quick download -->
+<div class="m-4 flex flex-col gap-2">
+	<h2 class="h2 text-xl font-medium my-2">Quick Download</h2>
+	{#each muxedFormats as f}
+		<div class="card px-4 py-2.5 flex gap-2 items-center">
+			{f.format_note}{f.fps}
+			<span class="badge variant-soft">
+				{f.ext}
+			</span>
+			<span class="badge variant-soft">
+				<HeadphonesIcon size="1.25x" class="mr-2" />
+				{f.acodec}
+			</span>
+			<div class="badge variant-soft">
+				<VideoIcon size="1x" class="mr-2" />
+				{f.vcodec}
+			</div>
+
+			<div class="grow-[2]" />
+
+			<a
+				href="/api/download?url={encodeURIComponent(f.url)}"
+				target="_blank"
+				download={title}
+				class="btn btn-sm variant-filled-primary grow"
+			>
+				<DownloadIcon size="1.25x" class="mr-2" />
+				{filesizeText(f.filesize || f.filesize_approx)}
+			</a>
+		</div>
+	{/each}
+</div>
+
+<div class="grid grid-cols-2 gap-2">
   <!-- Video only -->
 	<div class="m-4 flex flex-col gap-2">
     <h2 class="h2 text-xl font-medium my-2">Video Only</h2>
@@ -104,14 +137,16 @@
         <tbody>
           {#each videoFormats as f}
             <tr class="row">
-              <td class="w-full">
+              <td class="">
                 <span class="text-base">{f.format_note}{f.fps}</span>
               </td>
               <td>
-                <span class="badge variant-soft">
-                  {f.ext}
+								<span class="badge variant-soft">
+									<VideoIcon size="1.25x" class="mr-2" />
+									{f.ext} / {f.vcodec.split('.')[0]}
                 </span>
               </td>
+							<td class="w-full !p-0 !m-0"></td>
               <!-- Audio codec -->
               <!-- <td>
                 <span class="badge variant-soft">
@@ -120,17 +155,15 @@
                 </span>
               </td> -->
               <!-- Video codec -->
-              <td>
-                <div class="badge variant-soft">
-                  <VideoIcon size="1x" class="mr-2" />
-                  {f.vcodec}
+              <!-- <td>
+                <div class="variant-soft bg-transparent">
+                  {f.vcodec.split('.')[0]}
                 </div>
-              </td>
+              </td> -->
               <!-- Video bitrate -->
               <td>
-                <div class="badge variant-soft">
-                  <BarChart2Icon size="1x" class="mr-2" />
-                  {f.vbr} Kbps
+                <div class="variant-soft bg-transparent w-max ml-auto mr-0">
+                  {Math.round(f.vbr)} Kbps
                 </div>
               </td>
             </tr>
@@ -140,38 +173,43 @@
     </div>
   </div>
 
-	<!-- Quick download -->
+	<!-- Audio only -->
 	<div class="m-4 flex flex-col gap-2">
-		<h2 class="h2 text-xl font-medium my-2">Quick Download</h2>
-		{#each muxedFormats as f}
-			<div class="card px-4 py-2.5 flex gap-2 items-center">
-				{f.format_note}{f.fps}
-				<span class="badge variant-soft">
-					{f.ext}
-				</span>
-				<span class="badge variant-soft">
-					<HeadphonesIcon size="1.25x" class="mr-2" />
-					{f.acodec}
-				</span>
-				<div class="badge variant-soft">
-					<VideoIcon size="1x" class="mr-2" />
-					{f.vcodec}
-				</div>
-
-				<div class="grow-[2]" />
-
-				<a
-					href="/api/download?url={encodeURIComponent(f.url)}"
-					target="_blank"
-					download={title}
-					class="btn btn-sm variant-filled-primary grow"
-				>
-					<DownloadIcon size="1.25x" class="mr-2" />
-					{filesizeText(f.filesize || f.filesize_approx)}
-				</a>
-			</div>
-		{/each}
-	</div>
+    <h2 class="h2 text-xl font-medium my-2">Audio Only</h2>
+    <div class="table-container card">
+      <table class="table table-compact !bg-transparent table-interactive">
+        <tbody>
+          {#each audioFormats as f}
+            <tr class="row">
+              <td class="">
+                <span class="text-base">{f.format_note}</span>
+              </td>
+              <td>
+                <span class="badge variant-soft">
+                  <HeadphonesIcon size="1.25x" class="mr-2" />
+									{f.ext} / {f.acodec}
+                </span>
+              </td>
+							<td class="w-full !p-0 !m-0"></td>
+              <!-- Audio codec -->
+              <!-- <td>
+                <span class="badge variant-soft">
+                  <HeadphonesIcon size="1.25x" class="mr-2" />
+                  {f.acodec}
+                </span>
+              </td> -->
+              <!-- Video bitrate -->
+              <td>
+                <div class="variant-soft bg-transparent w-max mr-0 ml-auto">
+                  {Math.round(f.abr)} Kbps
+                </div>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <style lang="postcss">

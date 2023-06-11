@@ -14,5 +14,7 @@ import Playlist from "$lib/Playlist.svelte";
 {#if playlistId}
   <Playlist {json} />
 {:else if videoId}
-  <BigVideo {json} />
+  <div class="max-w-5xl">
+    <BigVideo {json} />
+  </div>
 {/if}
