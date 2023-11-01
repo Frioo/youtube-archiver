@@ -1,6 +1,7 @@
 import { exec, spawn } from 'node:child_process';
 import YTDLP from 'yt-dlp-wrap';
 import type { YTChannel } from './model/YTChannel';
+import { measurePerformance } from './utils';
 
 const ytdlp = new YTDLP();
 
@@ -19,8 +20,7 @@ export async function loadURL(url: string) {
 	try {
 		const output = await ytdlp.execPromise(['--flat-playlist', '-J', url]);
 		const res = JSON.parse(output);
-		const t1 = performance.now();
-		console.log(`[server] done in ${Number((t1 - t0) / 1000).toFixed(2)}s`);
+		console.log(`[server] done in ${measurePerformance(t0)}`);
 		return res;
 	} catch (err) {
 		console.log(err);

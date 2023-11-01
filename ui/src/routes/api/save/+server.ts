@@ -1,5 +1,6 @@
 import type { YTVideo } from '$lib/model/YTVideo.js';
 import pocketbase from '$lib/pocketbase.js';
+import { measurePerformance } from '$lib/utils.js';
 import { loadChannelById, loadURL } from '$lib/youtube';
 import { ClientResponseError, type RecordModel } from 'pocketbase';
 
@@ -53,7 +54,7 @@ export async function POST({ fetch, request, params }) {
 	}
 
 	console.log(TAG, 'video saved', record);
-	console.log(TAG, 'done in', Number((performance.now() - t0) / 1000).toFixed(2));
+	console.log(TAG, 'done in', measurePerformance(t0));
 
 	return new Response(JSON.stringify(record), { status: 200 });
 }
