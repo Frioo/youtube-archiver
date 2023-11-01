@@ -1,0 +1,400 @@
+{
+	"id": "UCBwv2X8VB-e_v-cXobZD7QA",
+	"channel": "Marius Heier",
+	"channel_id": "UCBwv2X8VB-e_v-cXobZD7QA",
+	"title": "Marius Heier",
+	"availability": null,
+	"channel_follower_count": 22600,
+	"description": "PS4 USB-C? mariusheier.com\n\nDiscord:\nhttps://discord.gg/QcCkfbkp3S\n\nTwitter:\nhttps://twitter.com/mariusheier\n\nInstagram: \nhttps://instagram.com/mariusheier\n",
+	"tags": [],
+	"thumbnails": [
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w320-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+			"height": 88,
+			"width": 320,
+			"preference": -10,
+			"id": "0",
+			"resolution": "320x88"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w320-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+			"height": 180,
+			"width": 320,
+			"preference": -10,
+			"id": "1",
+			"resolution": "320x180"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w640-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+			"height": 175,
+			"width": 640,
+			"preference": -10,
+			"id": "2",
+			"resolution": "640x175"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w854-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+			"height": 480,
+			"width": 854,
+			"preference": -10,
+			"id": "3",
+			"resolution": "854x480"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w960-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+			"height": 263,
+			"width": 960,
+			"preference": -10,
+			"id": "4",
+			"resolution": "960x263"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+			"height": 175,
+			"width": 1060,
+			"preference": -10,
+			"id": "5",
+			"resolution": "1060x175"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+			"height": 188,
+			"width": 1138,
+			"preference": -10,
+			"id": "6",
+			"resolution": "1138x188"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1280-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+			"height": 351,
+			"width": 1280,
+			"preference": -10,
+			"id": "7",
+			"resolution": "1280x351"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1280-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+			"height": 720,
+			"width": 1280,
+			"preference": -10,
+			"id": "8",
+			"resolution": "1280x720"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1440-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+			"height": 395,
+			"width": 1440,
+			"preference": -10,
+			"id": "9",
+			"resolution": "1440x395"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+			"height": 283,
+			"width": 1707,
+			"preference": -10,
+			"id": "10",
+			"resolution": "1707x283"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1920-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+			"height": 1080,
+			"width": 1920,
+			"preference": -10,
+			"id": "11",
+			"resolution": "1920x1080"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+			"height": 351,
+			"width": 2120,
+			"preference": -10,
+			"id": "12",
+			"resolution": "2120x351"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2120-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+			"height": 1192,
+			"width": 2120,
+			"preference": -10,
+			"id": "13",
+			"resolution": "2120x1192"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+			"height": 377,
+			"width": 2276,
+			"preference": -10,
+			"id": "14",
+			"resolution": "2276x377"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+			"height": 424,
+			"width": 2560,
+			"preference": -10,
+			"id": "15",
+			"resolution": "2560x424"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=s0",
+			"id": "banner_uncropped",
+			"preference": -5
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/W5xK9A1-DcLm9WmFHvYq0oWtGEaDVJJC9pIddtn0JyScZwSbP8s2Pxe9GewnGwaxd70mC2e1=s900-c-k-c0x00ffffff-no-rj",
+			"height": 900,
+			"width": 900,
+			"id": "17",
+			"resolution": "900x900"
+		},
+		{
+			"url": "https://yt3.googleusercontent.com/W5xK9A1-DcLm9WmFHvYq0oWtGEaDVJJC9pIddtn0JyScZwSbP8s2Pxe9GewnGwaxd70mC2e1=s0",
+			"id": "avatar_uncropped",
+			"preference": 1
+		}
+	],
+	"uploader_id": "@MariusHeier1",
+	"uploader_url": "https://www.youtube.com/@MariusHeier1",
+	"modified_date": null,
+	"view_count": null,
+	"playlist_count": 2,
+	"uploader": "Marius Heier",
+	"channel_url": "https://www.youtube.com/channel/UCBwv2X8VB-e_v-cXobZD7QA",
+	"_type": "playlist",
+	"entries": [
+		{
+			"id": "UCBwv2X8VB-e_v-cXobZD7QA",
+			"channel": "Marius Heier",
+			"channel_id": "UCBwv2X8VB-e_v-cXobZD7QA",
+			"title": "Marius Heier - Videos",
+			"availability": null,
+			"channel_follower_count": 22600,
+			"description": "PS4 USB-C? mariusheier.com\n\nDiscord:\nhttps://discord.gg/QcCkfbkp3S\n\nTwitter:\nhttps://twitter.com/mariusheier\n\nInstagram: \nhttps://instagram.com/mariusheier\n",
+			"tags": [],
+			"thumbnails": [
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w320-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+					"height": 88,
+					"width": 320,
+					"preference": -10,
+					"id": "0",
+					"resolution": "320x88"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w320-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+					"height": 180,
+					"width": 320,
+					"preference": -10,
+					"id": "1",
+					"resolution": "320x180"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w640-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+					"height": 175,
+					"width": 640,
+					"preference": -10,
+					"id": "2",
+					"resolution": "640x175"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w854-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+					"height": 480,
+					"width": 854,
+					"preference": -10,
+					"id": "3",
+					"resolution": "854x480"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w960-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+					"height": 263,
+					"width": 960,
+					"preference": -10,
+					"id": "4",
+					"resolution": "960x263"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+					"height": 175,
+					"width": 1060,
+					"preference": -10,
+					"id": "5",
+					"resolution": "1060x175"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+					"height": 188,
+					"width": 1138,
+					"preference": -10,
+					"id": "6",
+					"resolution": "1138x188"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1280-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+					"height": 351,
+					"width": 1280,
+					"preference": -10,
+					"id": "7",
+					"resolution": "1280x351"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1280-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+					"height": 720,
+					"width": 1280,
+					"preference": -10,
+					"id": "8",
+					"resolution": "1280x720"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1440-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+					"height": 395,
+					"width": 1440,
+					"preference": -10,
+					"id": "9",
+					"resolution": "1440x395"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+					"height": 283,
+					"width": 1707,
+					"preference": -10,
+					"id": "10",
+					"resolution": "1707x283"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w1920-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+					"height": 1080,
+					"width": 1920,
+					"preference": -10,
+					"id": "11",
+					"resolution": "1920x1080"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+					"height": 351,
+					"width": 2120,
+					"preference": -10,
+					"id": "12",
+					"resolution": "2120x351"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2120-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+					"height": 1192,
+					"width": 2120,
+					"preference": -10,
+					"id": "13",
+					"resolution": "2120x1192"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+					"height": 377,
+					"width": 2276,
+					"preference": -10,
+					"id": "14",
+					"resolution": "2276x377"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+					"height": 424,
+					"width": 2560,
+					"preference": -10,
+					"id": "15",
+					"resolution": "2560x424"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/n93G5A8dZJmzVuvS8Z9ygNwiC6xi62BKDgcTFtdfZ4wyrzomhRNNhAgUMBkFCW9BF7m1ZY4_=s0",
+					"id": "banner_uncropped",
+					"preference": -5
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/W5xK9A1-DcLm9WmFHvYq0oWtGEaDVJJC9pIddtn0JyScZwSbP8s2Pxe9GewnGwaxd70mC2e1=s900-c-k-c0x00ffffff-no-rj",
+					"height": 900,
+					"width": 900,
+					"id": "17",
+					"resolution": "900x900"
+				},
+				{
+					"url": "https://yt3.googleusercontent.com/W5xK9A1-DcLm9WmFHvYq0oWtGEaDVJJC9pIddtn0JyScZwSbP8s2Pxe9GewnGwaxd70mC2e1=s0",
+					"id": "avatar_uncropped",
+					"preference": 1
+				}
+			],
+			"uploader_id": "@MariusHeier1",
+			"uploader_url": "https://www.youtube.com/@MariusHeier1",
+			"modified_date": null,
+			"view_count": null,
+			"playlist_count": null,
+			"uploader": "Marius Heier",
+			"channel_url": "https://www.youtube.com/channel/UCBwv2X8VB-e_v-cXobZD7QA",
+			"_type": "playlist",
+			"entries": [
+				{
+					"_type": "url",
+					"ie_key": "Youtube",
+					"id": "oAsrLxaAkY0",
+					"url": "https://www.youtube.com/watch?v=oAsrLxaAkY0",
+					"title": "Beating the $20B Joystick Drift Problem, and giving it away for free",
+					"description": "Over the past decade, more than 400 million gaming controllers, valued at over $20 billion, have been sold, each featuring joysticks that are commonly plagued by potentiometer issues. Numerous...",
+					"duration": 1050.0,
+					"channel_id": null,
+					"channel": null,
+					"channel_url": null,
+					"uploader": null,
+					"uploader_id": null,
+					"uploader_url": null,
+					"thumbnails": [
+						{
+							"url": "https://i.ytimg.com/vi/oAsrLxaAkY0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBg27QzljI_VFVUxotsGS_szKBlHA",
+							"height": 94,
+							"width": 168
+						},
+						{
+							"url": "https://i.ytimg.com/vi/oAsrLxaAkY0/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAs4enpAaQKuccLC1NvwMqSEYuipQ",
+							"height": 110,
+							"width": 196
+						},
+						{
+							"url": "https://i.ytimg.com/vi/oAsrLxaAkY0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAe3jSi8gmVYNijSB85ltds_LvUcg",
+							"height": 138,
+							"width": 246
+						},
+						{
+							"url": "https://i.ytimg.com/vi/oAsrLxaAkY0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAwTnDEOC27zWelTCe9wjj1On9wHQ",
+							"height": 188,
+							"width": 336
+						}
+					],
+					"timestamp": null,
+					"release_timestamp": null,
+					"availability": null,
+					"view_count": 1412525,
+					"live_status": null,
+					"channel_is_verified": null,
+					"__x_forwarded_for_ip": null
+				}
+			],
+			"extractor_key": "YoutubeTab",
+			"extractor": "youtube:tab",
+			"webpage_url": "https://www.youtube.com/channel/UCBwv2X8VB-e_v-cXobZD7QA/videos",
+			"__x_forwarded_for_ip": null,
+			"requested_entries": [1],
+			"epoch": 1698785944,
+			"__files_to_move": {}
+		}
+	],
+	"webpage_url": "https://youtube.com/channel/UCBwv2X8VB-e_v-cXobZD7QA",
+	"original_url": "https://youtube.com/channel/UCBwv2X8VB-e_v-cXobZD7QA",
+	"webpage_url_basename": "UCBwv2X8VB-e_v-cXobZD7QA",
+	"webpage_url_domain": "youtube.com",
+	"extractor": "youtube:tab",
+	"extractor_key": "YoutubeTab",
+	"requested_entries": [1],
+	"epoch": 1698785944,
+	"__files_to_move": {},
+	"_version": {
+		"version": "2023.10.13",
+		"current_git_head": null,
+		"release_git_head": "b634ba742d8f38ce9ecfa0546485728b0c6c59d1",
+		"repository": "yt-dlp/yt-dlp"
+	}
+}

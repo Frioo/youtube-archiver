@@ -33,6 +33,10 @@
       await handleAdd();
     }
   }
+
+  async function handleVideo() {
+
+  }
 </script>
 
 <div class="p-4 flex gap-2">
@@ -45,6 +49,20 @@
       name="url"
       placeholder="Playlist URL">
     <button class="variant-filled" on:click={handleAdd}>
+      Fetch
+    </button>
+  </div>
+</div>
+<div class="p-4 flex gap-2">
+  <div class="input-group input-group-divider grid-cols-[1fr_auto]">
+    <input
+      bind:value={url}
+      on:keydown={(e) => e.key === 'Enter' && handleVideo()}
+      class="input"
+      type="url"
+      name="url"
+      placeholder="Video URL">
+    <button class="variant-filled" on:click={handleVideo}>
       Fetch
     </button>
   </div>

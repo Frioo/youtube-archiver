@@ -16,6 +16,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
 	return {
 		playlistId,
 		videoId,
-		json: data
+		json: data,
+		url: fullUrl
 	};
 };

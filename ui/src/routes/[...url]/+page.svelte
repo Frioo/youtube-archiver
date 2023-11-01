@@ -7,8 +7,6 @@ import Playlist from "$lib/Playlist.svelte";
   export let data: PageData;
   let { videoId, playlistId, json } = data;
   $: ({ videoId, playlistId, json } = data);
-
-  $: console.log(json);
 </script>
 
 {#if playlistId}
