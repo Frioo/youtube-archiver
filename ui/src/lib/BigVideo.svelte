@@ -118,7 +118,11 @@
 				{#if isSaving}
 					<ProgressRadial width="w-6" />
 				{:else}
-					Save
+					{#if isSaved}
+						Saved
+					{:else}
+						Save
+					{/if}
 				{/if}
 			</button>
 		</div>
