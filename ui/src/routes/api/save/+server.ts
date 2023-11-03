@@ -70,6 +70,13 @@ async function getChannelRecordId(channelId: string): Promise<string | undefined
 		return channel.id;
 	} catch (err) {
 		console.log('channel lookup failed', err);
+		if (err instanceof ClientResponseError) {
+			if (err.status === 404) {
+				console.log(TAG, 'channel', channelId, 'not found');
+			} else {
+				console.log(TAG, 'pocketbase error', err.status, err.message, err.data);
+			}
+		}
 		return undefined;
 	}
 }
