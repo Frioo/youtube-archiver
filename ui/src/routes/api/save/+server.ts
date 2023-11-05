@@ -1,4 +1,5 @@
 import type { YTVideo } from '$lib/model/YTVideo.js';
+import { Collections, type ChannelsRecord, type ChannelsResponse } from '$lib/pocketbase-types.js';
 import pocketbase from '$lib/pocketbase.js';
 import { measurePerformance } from '$lib/utils.js';
 import { loadChannelById, loadURL } from '$lib/youtube';
@@ -104,7 +105,9 @@ async function createChannel(channel_id: string): Promise<string> {
 	};
 
 	try {
-		const { id } = await pocketbase.collection('channels').create(payload);
+		const { id } = await pocketbase
+			.collection(Collections.Channels)
+			.create<ChannelsResponse>(payload);
 		return id;
 	} catch (err) {
 		console.log('failed to create channel record', err);
