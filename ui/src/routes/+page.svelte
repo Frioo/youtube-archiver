@@ -5,7 +5,8 @@
 	import type { PageData } from "./$types";
 	import { PUBLIC_POCKETBASE_URL } from "$env/static/public";
 	import { invalidateAll } from "$app/navigation";
-	import UrlInput, { type YTUrl } from "$lib/URLInput.svelte";
+	import UrlInput from "$lib/URLInput.svelte";
+  import type { YTUrl } from "$lib/model/YTUrl";
 
   export let data: PageData;
   let { videos } = data;
