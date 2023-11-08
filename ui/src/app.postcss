@@ -1,5 +1,13 @@
-/* Write your global styles here, in PostCSS syntax */
+@import url("@fontsource/noto-sans");
+@import url("material-symbols");
 
 html, body { 
   @apply h-full overflow-hidden; 
+}
+
+body {
+  margin: 0;
+  background-color: rgb(var(--m3-scheme-background));
+  color: rgb(var(--m3-scheme-on-background));
+  font-family: "Noto Sans";
 }
