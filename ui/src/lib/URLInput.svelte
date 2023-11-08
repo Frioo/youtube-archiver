@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
 	import type { YTUrl } from "$lib/model/YTUrl";
-	import { parseUrl } from "$lib/utils";
+	import { parseUrl } from "$lib/model/YTUrl";
 
   export let url: YTUrl | undefined = undefined;
   let _url: string;
