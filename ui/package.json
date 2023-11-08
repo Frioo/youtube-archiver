@@ -13,6 +13,8 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@iconify-icons/material-symbols": "^1.2.58",
+		"@iconify/svelte": "^3.1.4",
 		"@skeletonlabs/skeleton": "^1.6.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-node": "^1.2.4",
@@ -44,6 +46,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/noto-sans": "^5.0.17",
+		"@material-symbols/svg-400": "^0.13.2",
+		"m3-svelte": "^2.0.7",
+		"material-symbols": "^0.13.2",
 		"pocketbase": "^0.19.0"
 	}
 }
