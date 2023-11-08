@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Video from "$lib/Video.svelte";
 	import { defaultThumbnail } from "$lib/utils";
+	import VideoListItem from "./VideoListItem.svelte";
 
 	export let json: any;
 	let thumbnail = json?.thumbnails?.[json?.thumbnails.length - 1 || 0];
@@ -23,7 +24,7 @@
 	</div>
 	<div class="entries">
 		{#each json.entries as entry}
-			<Video video={entry} />
+			<VideoListItem video={entry} />
 		{/each}
 	</div>
 </div>
