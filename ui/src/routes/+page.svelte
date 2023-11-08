@@ -13,7 +13,7 @@
   $: ({ videos } = data);
 
   let playlists: string[] = [];
-  let url: YTUrl;
+  let ytUrl: YTUrl;
   let loading = false;
   let json: any = undefined;
   let error: any = undefined;
@@ -39,28 +39,25 @@
   } */
 
   async function handleVideo() {
-    const res = await fetch('/api/save', {
-      method: 'POST',
-      body: JSON.stringify({ url }),
-    });
-
-    if (res.status !== 200) {
-      console.log(await res.json());
-      return;
-    }
+    
 
     invalidateAll();
   }
 
   async function handleUrl(e: CustomEvent) {
-    url = e.detail;
-    console.log(url);
+    ytUrl = e.detail;
+    const res = await fetch('/api/load', {
+      method: 'POST',
+      body: JSON.stringify({ url: ytUrl.url }),
+    })
+    const data = await res.json();
+    console.log(data);
   }
 </script>
 
 <!-- YouTube URL input -->
 <div class="p-4 flex gap-2">
-  <UrlInput on:url={handleUrl} />
+  <UrlInput on:submit={handleUrl} />
 </div>
 
 <!-- Data -->
