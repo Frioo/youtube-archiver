@@ -7,6 +7,7 @@
 	import { invalidateAll } from "$app/navigation";
 	import UrlInput from "$lib/URLInput.svelte";
   import type { YTUrl } from "$lib/model/YTUrl";
+	import VideoListItem from "$lib/VideoListItem.svelte";
 
   export let data: PageData;
   let { videos } = data;

@@ -1,20 +1,20 @@
 <script lang="ts">
   import InfoIcon from "@iconify-icons/material-symbols/info-rounded";
 	import Icon from "@iconify/svelte";
+	import type { Video } from "./model/Video";
 
-  export let video: any;
-  $: ({ title, thumbnails, video_id, collectionId, id, channel } = video)
+  export let video: Video;
 </script>
 
 <div class="entry">
-  <div class="thumbnail video-thumbnail" style="background-image: url('{thumbnails[0].url}')">
-    <a href="/{video_id}" id="btn-video" class="btn-icon variant-filled">
+  <div class="thumbnail video-thumbnail" style="background-image: url('TODO')">
+    <a href="/{video.id}" id="btn-video" class="btn-icon variant-filled">
       <Icon icon={InfoIcon} />
     </a>
   </div>
   <div class="flex flex-col justify-start ml-2">
-    <div class="font-medium opacity-90">{title}</div>
-    <div class="text-gray-800 text-base">{channel || ''}</div>
+    <div class="font-medium opacity-90">{video.title}</div>
+    <div class="text-gray-800 text-base">{video.channelName || ''}</div>
   </div>
 </div>
 
