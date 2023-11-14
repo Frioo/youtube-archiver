@@ -1,4 +1,5 @@
 ﻿using Dapper.CQRS;
+using DotNetBackend.Data.Requests;
 using DotNetBackend.Models;
 using Npgsql;
 using System.Collections.Generic;
@@ -9,6 +10,13 @@ namespace DotNetBackend.Data.Queries
 {
     public class GetVideoPagedListQuery : Query<List<Video>>
     {
+        public PagingParameters PagingParameters { get; set; }
+
+        public GetVideoPagedListQuery(PagingParameters paging)
+        {
+            PagingParameters = paging;
+        }
+
         public override List<Video> Execute()
         {
             var sql = @$"
@@ -20,7 +28,9 @@ namespace DotNetBackend.Data.Queries
                     v.channel_name,
                     v.channel_handle,
                     v.duration
-                FROM video AS v;
+                FROM video AS v
+                OFFSET {PagingParameters.Page * PagingParameters.PageSize}
+                LIMIT {PagingParameters.PageSize};
             ";
             var videos = QueryList<Video>(sql);
 

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
+using DotNetBackend.Data.Requests;
 
 namespace DotNetBackend.Controllers
 {
@@ -33,9 +34,9 @@ namespace DotNetBackend.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Video>> Get() 
+        public ActionResult<IEnumerable<Video>> Get([FromQuery] GetVideoPagedListRequest request) 
         {
-            var query = new GetVideoPagedListQuery();
+            var query = new GetVideoPagedListQuery(request);
             var videos = QueryExecutor.Execute(query);
             return videos;
         }
