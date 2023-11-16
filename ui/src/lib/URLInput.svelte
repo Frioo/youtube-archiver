@@ -16,6 +16,7 @@
   const dispatch = createEventDispatcher();
 
   export let url: YTUrl | undefined = undefined;
+  export let disabled = false;
   let _url: string | undefined = undefined;
 
 
@@ -38,6 +39,7 @@
 <!-- on:keydown={(e) => e.key === 'Enter' && handleUrl()} -->
 <div class="flex w-full items-center relative">  
   <TextField
+    {disabled}
     class="w-full"
     bind:value={_url}
     on:keydown={(e) => e.key === 'enter' && handleSubmit()}
@@ -45,7 +47,7 @@
     leadingIcon={LinkIcon}
     error={!!_url && url === undefined} />
 
-  {#if url}
+  {#if url && !disabled}
     <div class="!absolute right-2" in:fade={{ duration: 150 }}>
       <Button type="filled" on:click={handleSubmit}>Load</Button>
     </div>
