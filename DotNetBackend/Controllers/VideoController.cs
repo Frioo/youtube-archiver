@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
 using DotNetBackend.Data.Requests;
+using DotNetBackend.Data.Responses;
 
 namespace DotNetBackend.Controllers
 {
@@ -46,7 +47,7 @@ namespace DotNetBackend.Controllers
         {
             if (string.IsNullOrWhiteSpace(videoId))
             {
-                return BadRequest("Video ID is required");
+                return BadRequest(new ResponseBase("Video ID is required"));
             }
 
             var url = VideoUrl(videoId);
@@ -66,7 +67,7 @@ namespace DotNetBackend.Controllers
         {
             if (string.IsNullOrWhiteSpace(videoId))
             {
-                return BadRequest("Video ID is required");
+                return BadRequest(new ResponseBase("Video ID is required"));
             }
 
             var url = VideoUrl(videoId);
