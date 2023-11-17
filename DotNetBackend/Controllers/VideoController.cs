@@ -11,13 +11,14 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
 using DotNetBackend.Data.Requests;
-using DotNetBackend.Data.Responses;
+using System.Linq;
+using YoutubeDLSharp.Metadata;
 
 namespace DotNetBackend.Controllers
 {
     [ApiController]
     [Route("video")]
-    public class VideoController : Controller
+    public class VideoController : BaseController
     {
         public ICommandExecutor CommandExecutor { get; }
         public IQueryExecutor QueryExecutor { get; }
@@ -43,19 +44,19 @@ namespace DotNetBackend.Controllers
         }
 
         [HttpGet("json")]
-        public async Task<ActionResult> GetJson([FromQuery] string videoId)
+        public async Task<ActionResult> GetJson([FromQuery] GetVideoDataRequest request)
         {
-            if (string.IsNullOrWhiteSpace(videoId))
+            var validation = await new GetVideoDataRequestValidator().ValidateAsync(request);
+            if (!validation.IsValid)
             {
-                return BadRequest(new ResponseBase("Video ID is required"));
+                return BadRequest(validation);
             }
 
-            var url = VideoUrl(videoId);
-            var res = await YoutubeDL.RunVideoDataFetch(url);
+            var res = await FetchVideoData(request);
             
             if (!res.Success)
             {
-                throw new Exception(string.Join('\n', res.ErrorOutput));
+                return Problem(res);
             }
             
             var videoData = res.Data;
@@ -63,19 +64,19 @@ namespace DotNetBackend.Controllers
         }
 
         [HttpGet("save")]
-        public async Task<ActionResult> SaveVideo([FromQuery] string videoId)
+        public async Task<ActionResult> SaveVideo([FromQuery] GetVideoDataRequest request)
         {
-            if (string.IsNullOrWhiteSpace(videoId))
+            var validation = await new GetVideoDataRequestValidator().ValidateAsync(request);
+            if (!validation.IsValid)
             {
-                return BadRequest(new ResponseBase("Video ID is required"));
+                return BadRequest(validation);
             }
 
-            var url = VideoUrl(videoId);
-            var res = await YoutubeDL.RunVideoDataFetch(url);
+            var res = await FetchVideoData(request);
 
             if (!res.Success)
             {
-                throw new Exception(string.Join('\n', res.ErrorOutput));
+                return Problem(res);
             }
 
             var videoData = res.Data;
@@ -83,7 +84,18 @@ namespace DotNetBackend.Controllers
             var command = new CreateVideoCommand(dto);
             CommandExecutor.Execute(command);
 
-            return Ok(videoId);
+            return Ok(dto.Id);
+        }
+
+        private async Task<RunResult<VideoData>> FetchVideoData(GetVideoDataRequest req)
+        {
+            if (string.IsNullOrEmpty(req.Url))
+            {
+                req.Url = VideoUrl(req.Id);
+            }
+            var res = await YoutubeDL.RunVideoDataFetch(req.Url);
+
+            return res;
         }
 
         private string VideoUrl(string videoId) => $"https://www.youtube.com/watch?v={videoId}";

@@ -5,12 +5,11 @@ namespace DotNetBackend.Data.Responses
 {
     public class ResponseBase
     {
-        public bool IsSuccess { get; set; } = true;
+        public bool IsSuccess => Errors == null || Errors.Count == 0;
         public List<string> Errors { get; set; }
 
         public ResponseBase(string error)
         {
-            IsSuccess = false;
             Errors = new List<string> { error };
         }
 
