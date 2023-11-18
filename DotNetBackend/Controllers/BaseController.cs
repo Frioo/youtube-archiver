@@ -4,6 +4,7 @@ using YoutubeDLSharp.Metadata;
 using YoutubeDLSharp;
 using FluentValidation.Results;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace DotNetBackend.Controllers
 {
@@ -21,10 +22,15 @@ namespace DotNetBackend.Controllers
         {
             var errorText = string.Join('\n', runResult.ErrorOutput);
             var model = new ResponseBase(errorText);
-            var res = new ObjectResult(model)
-            {
-                StatusCode = 500,
-            };
+            var res = new ObjectResult(model) { StatusCode = 500 };
+
+            return res;
+        }
+
+        public override OkObjectResult Ok([ActionResultObjectValue] object value)
+        {
+            var model = new ResponseBase(value);
+            var res = new OkObjectResult(model) { StatusCode = 200 };
 
             return res;
         }
