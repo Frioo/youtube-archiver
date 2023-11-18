@@ -30,9 +30,12 @@ namespace DotNetBackend.Data.Queries
             FROM playlist AS p
             WHERE p.id = @Id;
 
-            SELECT COUNT(pv.video_id)
-            FROM playlist_video AS pv
-            WHERE pv.playlist_id = @Id;
+            SELECT COUNT(*)
+            FROM (
+                SELECT DISTINCT pv.video_id
+                FROM playlist_video AS pv
+                WHERE pv.playlist_id = @Id
+            );
 
             SELECT DISTINCT
                 v.id,
