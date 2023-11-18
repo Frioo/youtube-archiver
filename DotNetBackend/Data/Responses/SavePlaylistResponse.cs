@@ -22,6 +22,7 @@ namespace DotNetBackend.Data.Responses
 
     public class SavePlaylistWithVideosResponse : SavePlaylistResponse
     {
+        public int TotalCount { get; set; }
         public int SuccessCount { get; set; }
         public int ErrorCount { get; set; }
         public List<string> UnavailableVideos { get; set; }

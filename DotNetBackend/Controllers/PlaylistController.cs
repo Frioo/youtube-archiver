@@ -6,6 +6,7 @@ using DotNetBackend.Data.Requests;
 using DotNetBackend.Data.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -68,6 +69,10 @@ namespace DotNetBackend.Controllers
             {
                 Id = res.Data.ID,
                 Title = res.Data.Title,
+                Description = res.Data.Description,
+                CreatedAt = DateTime.Now,
+                LastCheckedAt = DateTime.Now,
+                UpdatedAt = res.Data.ModifiedDate.HasValue ? res.Data.ModifiedDate.Value : DateTime.Now,
             };
             commandExec.Execute(new CreatePlaylistCommand(dto));
 
@@ -104,6 +109,7 @@ namespace DotNetBackend.Controllers
 
             var model = new SavePlaylistWithVideosResponse(dto)
             {
+                TotalCount = videos.Count,
                 SuccessCount = videos.Count - failedVideoIds.Count,
                 ErrorCount = failedVideoIds.Count,
                 UnavailableVideos = failedVideoIds,

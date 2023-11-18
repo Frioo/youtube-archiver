@@ -18,12 +18,21 @@ namespace DotNetBackend.Data.Commands
         }
 
         private const string Sql = @"
-            INSERT INTO playlist (id, title)
+            INSERT INTO playlist (id, title, description, created_at, updated_at, last_checked_at)
             VALUES (
                 @Id,
-                @Title
+                @Title,
+                @Description,
+                @CreatedAt,
+                @UpdatedAt,
+                @LastCheckedAt
             )
-            ON CONFLICT (id) DO NOTHING;
+            ON CONFLICT (id) DO UPDATE
+            SET
+                title = @Title,
+                description = @Description,
+                updated_at = @UpdatedAt,
+                last_checked_at = @LastCheckedAt;
         ";
     }
 }
