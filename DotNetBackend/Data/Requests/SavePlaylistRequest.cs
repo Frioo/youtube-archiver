@@ -1,8 +1,17 @@
-﻿namespace DotNetBackend.Data.Requests
+﻿using FluentValidation;
+
+namespace DotNetBackend.Data.Requests
 {
-    public class SavePlaylistRequest
+    public class SavePlaylistRequest : GetPlaylistDataRequest
     {
-        public string Id { get; set; }
         public bool SaveVideos { get; set; } = true;
+    }
+
+    public class SavePlaylistRequestValidator : AbstractValidator<SavePlaylistRequest>
+    {
+        public SavePlaylistRequestValidator()
+        {
+            Include(new GetPlaylistDataRequestValidator());
+        }
     }
 }

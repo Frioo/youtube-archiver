@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
+using YoutubeDLSharp.Metadata;
 
 namespace DotNetBackend.Controllers
 {
@@ -44,10 +45,13 @@ namespace DotNetBackend.Controllers
         [HttpGet("save")]
         public async Task<ActionResult> Save([FromQuery] SavePlaylistRequest req)
         {
-            // Validate request
-            // ...
+            var validation = await new SavePlaylistRequestValidator().ValidateAsync(req);
+            if (!validation.IsValid)
+            {
+                return BadRequest(validation);
+            }
 
-            var res = await ytdlp.RunVideoDataFetch(PlaylistUrl(req.Id));
+            var res = await FetchPlaylistData(req);
             if (!res.Success)
             {
                 return Problem(res);
