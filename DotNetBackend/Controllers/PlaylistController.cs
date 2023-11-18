@@ -16,7 +16,7 @@ namespace DotNetBackend.Controllers
 {
     [ApiController]
     [Route("playlists")]
-    public class PlaylistController : Controller
+    public class PlaylistController : BaseController
     {
         private IDbConnection connection;
         private IQueryExecutor queryExec;
@@ -50,11 +50,8 @@ namespace DotNetBackend.Controllers
             var res = await ytdlp.RunVideoDataFetch(PlaylistUrl(req.Id));
             if (!res.Success)
             {
-                throw new System.Exception(string.Join('\n', res.ErrorOutput));
+                return Problem(res);
             }
-
-            //var videoDtos = res.Data.Entries.Select((vd) => CreateVideoDTO.FromVideoData(vd)).ToList();
-            //Debug.WriteLine($"playlist {req.Id} has {videos.Count()} videos");
 
             // Create playlist record
             var dto = new CreatePlaylistDTO
