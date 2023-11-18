@@ -34,5 +34,12 @@ namespace DotNetBackend.Controllers
 
             return res;
         }
+
+        public OkObjectResult Ok([ActionResultObjectValue] ResponseBase value)
+        {
+            var res = new OkObjectResult(value) { StatusCode = 200 };
+
+            return res;
+        }
     }
 }
