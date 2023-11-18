@@ -1,9 +1,12 @@
-﻿using Dapper.CQRS;
+﻿using Dapper;
+using Dapper.CQRS;
 using DotNetBackend.Data;
 using DotNetBackend.Data.Commands;
 using DotNetBackend.Data.DTO;
+using DotNetBackend.Data.Queries;
 using DotNetBackend.Data.Requests;
 using DotNetBackend.Data.Responses;
+using DotNetBackend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using System;
@@ -12,13 +15,14 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using YoutubeDLSharp;
 using YoutubeDLSharp.Metadata;
 
 namespace DotNetBackend.Controllers
 {
     [ApiController]
-    [Route("playlists")]
+    [Route("playlist")]
     public class PlaylistController : BaseController
     {
         private IDbConnection connection;
@@ -33,6 +37,7 @@ namespace DotNetBackend.Controllers
             YoutubeDL youtubeDl
         )
         {
+            this.connection = connection;
             this.queryExec = queryExec;
             this.commandExec = commandExec;
             this.ytdlp = youtubeDl;
@@ -42,6 +47,48 @@ namespace DotNetBackend.Controllers
         public IActionResult Index()
         {
             return Ok();
+        }
+
+        [HttpGet("videos")]
+        public async Task<ActionResult> GetPlaylistVideos([FromQuery] GetPlaylistVideosRequest request)
+        {
+            var validation = await new GetPlaylistVideosRequestValidator().ValidateAsync(request);
+            if (!validation.IsValid)
+            {
+                return BadRequest(validation);
+            }
+
+            if (string.IsNullOrWhiteSpace(request.Id))
+            {
+                var uri = new Uri(request.Url, UriKind.Absolute);
+                request.Id = HttpUtility.ParseQueryString(uri.Query).Get("list");
+            }
+
+            
+            var query = new GetPlaylistVideosPagedListQuery(request);
+            using (var reader = await connection.QueryMultipleAsync(query.Sql, request))
+            {
+                var playlist = await reader.ReadFirstAsync<PlaylistDTO>();
+                var videoCount = await reader.ReadFirstAsync<int>();
+                var videos = await reader.ReadAsync<Video>();
+                var totalPages = (decimal) videoCount / request.PageSize;
+
+                var dto = new PlaylistVideosDTO
+                {
+                    Id = playlist.Id,
+                    Title = playlist.Title,
+                    Description = playlist.Description,
+                    Videos = videos.ToList()
+                };
+
+                var model = new PagedResponse<PlaylistVideosDTO>(dto)
+                {
+                    TotalItems = videoCount,
+                    TotalPages = (int) Math.Ceiling(totalPages),
+                };
+                
+                return Ok(model);
+            }
         }
 
         [HttpGet("save")]
