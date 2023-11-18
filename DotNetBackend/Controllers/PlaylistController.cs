@@ -85,6 +85,8 @@ namespace DotNetBackend.Controllers
                 {
                     TotalItems = videoCount,
                     TotalPages = (int) Math.Ceiling(totalPages),
+                    Page = request.Page,
+                    PageSize = request.PageSize,
                 };
                 
                 return Ok(model);
