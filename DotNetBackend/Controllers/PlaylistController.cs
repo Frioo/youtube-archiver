@@ -99,6 +99,36 @@ namespace DotNetBackend.Controllers
             return Ok();
         }
 
+        [HttpGet("json")]
+        public async Task<ActionResult> GetPlaylistJson([FromQuery] GetPlaylistDataRequest req)
+        {
+            var validationResult = await new GetPlaylistDataRequestValidator().ValidateAsync(req);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult);
+            }
+
+            var res = await FetchPlaylistData(req);
+            if (!res.Success)
+            {
+                return Problem(res);
+            }
+
+            return Ok(res.Data);
+        }
+
+        private async Task<RunResult<VideoData>> FetchPlaylistData(GetPlaylistDataRequest req)
+        {
+            if (string.IsNullOrEmpty(req.Url))
+            {
+                req.Url = PlaylistUrl(req.Id);
+            }
+
+            var res = await ytdlp.RunVideoDataFetch(req.Url);
+
+            return res;
+        }
+
         private string PlaylistUrl(string id) => $"https://www.youtube.com/playlist?list={id}";
     }
 }
