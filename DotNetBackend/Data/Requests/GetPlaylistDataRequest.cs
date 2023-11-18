@@ -3,13 +3,19 @@ using System;
 
 namespace DotNetBackend.Data.Requests
 {
-    public class GetPlaylistDataRequest
+    public class GetPlaylistDataRequest : IGetPlaylistDataRequest
     {
         public string Id { get; set; }
         public string Url { get; set; }
     }
 
-    public class GetPlaylistDataRequestValidator : AbstractValidator<GetPlaylistDataRequest>
+    public interface IGetPlaylistDataRequest
+    {
+        public string Id { get; set; }
+        public string Url { get; set; }
+    }
+
+    public class GetPlaylistDataRequestValidator : AbstractValidator<IGetPlaylistDataRequest>
     {
         public GetPlaylistDataRequestValidator()
         {
