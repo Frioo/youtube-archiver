@@ -3,6 +3,7 @@ using DotNetBackend.Data;
 using DotNetBackend.Data.Commands;
 using DotNetBackend.Data.DTO;
 using DotNetBackend.Data.Requests;
+using DotNetBackend.Data.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using System.Collections.Generic;
@@ -57,22 +58,27 @@ namespace DotNetBackend.Controllers
                 return Problem(res);
             }
 
+            if (string.IsNullOrEmpty(req.Id))
+            {
+                req.Id = res.Data.ID;
+            }
+
             // Create playlist record
             var dto = new CreatePlaylistDTO
             {
-                Id = req.Id,
+                Id = res.Data.ID,
                 Title = res.Data.Title,
             };
             commandExec.Execute(new CreatePlaylistCommand(dto));
 
             if (!req.SaveVideos || res.Data.Entries.Length == 0)
             {
-                return Ok();
+                return Ok(new SavePlaylistResponse(dto));
             }
 
             // Create related video records
             var videos = res.Data.Entries.ToList();
-            var failedVideos = new List<string>();
+            var failedVideoIds = new List<string>();
             using (IDbConnection conn = Database.CreateDatabaseConnection())
             {
                 for (var i = 0; i < videos.Count; i++)
@@ -82,7 +88,7 @@ namespace DotNetBackend.Controllers
                     if (string.IsNullOrWhiteSpace(vd.ChannelID))
                     {
                         // Skip unavailable video
-                        failedVideos.Add(vd.ID);
+                        failedVideoIds.Add(vd.ID);
                         continue;
                     }
 
@@ -95,12 +101,15 @@ namespace DotNetBackend.Controllers
                     t.Commit();
                 }
             }
-            
 
-            
+            var model = new SavePlaylistWithVideosResponse(dto)
+            {
+                SuccessCount = videos.Count - failedVideoIds.Count,
+                ErrorCount = failedVideoIds.Count,
+                UnavailableVideos = failedVideoIds,
+            };
 
-
-            return Ok();
+            return Ok(model);
         }
 
         [HttpGet("json")]
