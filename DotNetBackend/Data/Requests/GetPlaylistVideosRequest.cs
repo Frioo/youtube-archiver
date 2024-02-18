@@ -14,6 +14,7 @@ namespace DotNetBackend.Data.Requests
     {
         public GetPlaylistVideosRequestValidator()
         {
+            Include(new RequestBaseValidator());
             Include(new GetPlaylistDataRequestValidator());
         }
     }

@@ -31,7 +31,7 @@ export async function POST({ fetch, params, request }) {
 
 	try {
 		const url = new URL(env.API_URL + '/video/json');
-		url.searchParams.append('videoId', ytUrl.videoId);
+		url.searchParams.append('id', ytUrl.videoId);
 		const res = await fetch(url);
 		//const data = await res.json();
 		return new Response(res.body, { status: res.status });

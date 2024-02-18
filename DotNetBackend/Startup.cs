@@ -2,16 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper.CQRS;
 using DotNetBackend.Data;
+using DotNetBackend.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -35,6 +39,7 @@ namespace DotNetBackend
             services.AddTransient<ICommandExecutor, CommandExecutor>();
             services.AddTransient<IQueryExecutor, QueryExecutor>();
             services.AddTransient<IDbConnection>(_ => Database.CreateDatabaseConnection());
+            services.AddSingleton<DownloadQueue>();
             Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
 
             YoutubeDLSharp.Utils.DownloadBinaries().Wait();
@@ -63,10 +68,17 @@ namespace DotNetBackend
 
             app.UseAuthorization();
 
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Files")),
+                RequestPath = "/Files"
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

@@ -2,12 +2,19 @@
 	import { defaultThumbnail } from "$lib/utils";
   import { InfoIcon } from "svelte-feather-icons";
 	import type { Video } from "./model/Video";
+	import type { YTVideo } from "./model/YTVideo";
+  import { PUBLIC_ASSETS_URL } from "$env/static/public";
 
   export let video: Video;
-  //$: ({ title, thumbnail, video_id, collectionId, id, expand } = video)
 
   function thumbnailUrl(): string {
-    return `TODO`;
+    if (!video.thumbnail) return "";
+
+    if (video.thumbnail.startsWith("https://")) {
+      return video.thumbnail;
+    }
+    
+    return PUBLIC_ASSETS_URL + video.thumbnail;
   }
 
   function channelUrl(): string | undefined {

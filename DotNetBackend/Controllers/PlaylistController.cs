@@ -44,8 +44,17 @@ namespace DotNetBackend.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<ActionResult> Index([FromQuery] RequestBase request)
         {
+            var validation = await new RequestBaseValidator().ValidateAsync(request);
+            if (!validation.IsValid)
+            {
+                return BadRequest(validation);
+            }
+
+            var playlists = new GetPlaylistPagedListQuery().Execute();
+
+
             return Ok();
         }
 
@@ -150,7 +159,7 @@ namespace DotNetBackend.Controllers
                     var pv = new CreatePlaylistVideoDTO() { PlaylistId = req.Id, VideoId = vd.ID };
 
                     var t = conn.BeginTransaction();
-                    commandExec.Execute(new CreateVideoCommand(v));
+                    await commandExec.ExecuteAsync(new CreateVideoCommand(v));
                     commandExec.Execute(new CreatePlaylistVideoCommand(pv));
                     t.Commit();
                 }

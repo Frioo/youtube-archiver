@@ -49,6 +49,7 @@ namespace DotNetBackend.Controllers
             var validation = await new GetVideoDataRequestValidator().ValidateAsync(request);
             if (!validation.IsValid)
             {
+                Debug.WriteLine($"[/video/json] request validation failed\n{request.Id}\n{request.Url}\n{string.Join('\n', validation.Errors)}");
                 return BadRequest(validation);
             }
 
@@ -82,7 +83,7 @@ namespace DotNetBackend.Controllers
             var videoData = res.Data;
             var dto = CreateVideoDTO.FromVideoData(videoData);
             var command = new CreateVideoCommand(dto);
-            CommandExecutor.Execute(command);
+            await CommandExecutor.ExecuteAsync(command);
 
             return Ok(dto.Id);
         }

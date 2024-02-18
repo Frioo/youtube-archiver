@@ -8,7 +8,7 @@
 
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
-	import { StyleFromScheme } from "m3-svelte";
+	import { Card, StyleFromScheme } from "m3-svelte";
 
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 						
@@ -21,11 +21,16 @@
 
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar>
+		<Card type='filled'>
+			<h1>
+				YouTube Archiver
+			</h1>
+		</Card>
+		<!-- <AppBar>
 			<h1 class="font-black opacity-90 text-xl">
 				YouTube Archiver
 			</h1>
-		</AppBar>
+		</AppBar> -->
 	</svelte:fragment>
 	<slot />
 </AppShell>

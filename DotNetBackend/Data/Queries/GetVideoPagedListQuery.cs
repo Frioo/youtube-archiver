@@ -24,10 +24,12 @@ namespace DotNetBackend.Data.Queries
                     v.id,
                     v.title,
                     v.description,
+                    v.thumbnail,
                     v.channel_id,
                     v.channel_name,
                     v.channel_handle,
-                    v.duration
+                    v.duration,
+                    v.created_at
                 FROM video AS v
                 OFFSET {PagingParameters.Page * PagingParameters.PageSize}
                 LIMIT {PagingParameters.PageSize};

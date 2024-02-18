@@ -34,6 +34,12 @@
     if (!url) return;
     dispatch('submit', url);
   }
+
+  function handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Enter') {
+      handleSubmit()
+    } 
+  }
 </script>
 
 <!-- on:keydown={(e) => e.key === 'Enter' && handleUrl()} -->
@@ -42,7 +48,7 @@
     {disabled}
     class="w-full"
     bind:value={_url}
-    on:keydown={(e) => e.key === 'enter' && handleSubmit()}
+    on:keydown={(e) => handleKeyDown(e)}
     name="YouTube URL"
     leadingIcon={LinkIcon}
     error={!!_url && url === undefined} />
